@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let obj of foodArr" onload="total(obj)">
+      <div class="card" style="width: 100%;border:0px">
+
+        <img src={{obj.photo}} class="card-img-top" alt="no-image " width="00" height="200">
+        <div class="card-body">
+          {{obj.itemName}} - <b>{{obj.itemType}}</b><br>
+          {{obj.price | currency:'INR'}}<br>
+          <button *ngIf="getStatus()==true" id={{obj.itemID}} [disabled]="isAdded(obj)" (click)="addToCart(obj)"
+            class="btn btn-primary btn-sm"> Add to cart
+            <i class="fa fa-shopping-cart" style="font-size:20px ;color:white"></i></button>
+          <button *ngIf="getStatus()==false" id={{obj.itemID}} [disabled]="isAdded(obj)" routerLink="/login"
+            class="btn btn-primary btn-sm"> Add to cart
+            <i class="fa fa-shopping-cart" style="font-size:20px ;color:white"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>

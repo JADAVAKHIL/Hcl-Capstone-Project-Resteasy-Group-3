@@ -1,0 +1,39 @@
+<div class="container" style="margin-top: 30px;">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-sm-12 col-lg-6">
+      <div *ngIf="isDisplay" class="logo">
+        <h6>Your Food Cart is Empty!!!  Please are order your Healthy Food </h6>
+        <img src="https://th.bing.com/th/id/OIP.eXHaUOLicZ0Ye9f00clu9gHaG4?w=205&h=190&c=7&o=5&dpr=2.25&pid=1.7"
+          alt="Responsive image" width="100%">
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="!isDisplay">
+  <table class="table">
+    <thead>
+      <th>Product image</th>
+      <th>Product Details</th>
+      <th>Product quantity</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of cartArray">
+        <td><img class="img1" src={{obj.photo}} alt="no-image " /></td>
+        <td>{{obj.itemName}} - <b>{{obj.itemType}}</b></td>
+        <td>{{obj.price*this.quantity | currency:'INR'}}<br>
+          <button class="btn btn-success" (click)="decreaseQuantity(obj)"
+            style="background-color:navy; color: whitesmoke;"><i class="fa fa-minus"></i>-</button>
+          {{0+this.quantity}}
+          <button class="btn btn-success" (click)="addQuantity(obj)"
+            style="background-color:navy; color: whitesmoke;"><i class="fa fa-plus"></i>+</button><br><br>
+          <button class="btn btn-danger" (click)="removeCartItem(obj)"
+            style="background-color: red; color: whitesmoke;">remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-info btn-sm right" routerLink="/address"
+    style="background-color:green; color: whitesmoke;">CheckOut</button>
+</div>

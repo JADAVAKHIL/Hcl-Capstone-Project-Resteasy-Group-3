@@ -1,0 +1,7 @@
+.card{float:none; /* disable the float */
+  display: inline-block; /* make blocks inline-block */
+  text-align: initial; 
+width: 200%;}
+button{
+  border-radius: 20%;
+}

@@ -1,0 +1,61 @@
+<div class="row" style="width: 100%;">
+  <div class="col-md-4 offset-md-4">
+    <div class="guest-form-card card">
+
+      <div class="card-header text-center" style="background:red;color: rgb(8, 8, 8);">
+        <h4>Checkout form</h4>
+      </div>
+
+      <div class="card-body" style="width: 320px;">
+        <form>
+          <!-- House-NO -->
+          <div class="form-group">
+            <label for="houseNo">House_no</label>
+            <input id="houseNo" class="form-control" required pattern="^\d+[-\/]+\d+[a-zA-Z]*$$"
+             [(ngModel)]="houseNo" name="houseNo" />
+            <span class="invalid-feedback">House_no required</span>
+            
+          </div>
+
+          <!-- street -->
+          <div class="form-group">
+            <label for="street">Street</label>
+            <input id="street" class="form-control" required minlength="4" [(ngModel)]="street" name="street" />
+            <span class="invalid-feedback">Street can't be Empty</span>
+           
+          </div>
+
+           <!-- state -->
+          <div class="form-group">
+            <label for="state">State</label>
+            <input id="state" class="form-control" required minlength="3" [(ngModel)]="state"  name="state"/>
+            <span class="invalid-feedback">City can't be Empty</span>
+             
+          </div>
+
+         
+         
+
+          <!-- pincode -->
+          <div class="form-group">
+            <label for="pincode">PinCode</label>
+            <input id="pincode" class="form-control" required maxlength="6" minlength="6" pattern="[0-9]{6}" [(ngModel)]="pincode" />
+            <span class="invalid-feedback">PinCode must contains 6 digits</span>
+           
+          </div>
+
+          <!-- country -->
+         
+          <input id="country" class="form-control" required minlength="3"
+         placeholder="India" [(ngModel)]="country"name="country"/>
+         <td>
+          <button class="btn btn-success" style="background-color:green" (click)="saveAddress()" routerLink="/payment">Proceed to Checkout</button>
+        </td>
+          <td>
+          <button class="btn btn-success" style="background-color:red" routerLink="/cart">Back</button>
+        </td>
+          <br><br>
+        </form>
+      </div>
+    </div>
+  </div>

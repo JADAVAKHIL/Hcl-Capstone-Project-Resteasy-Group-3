@@ -1,0 +1,77 @@
+<div class="row" style="width: 100%;">
+  <div class="col-md-4 offset-md-4">
+    <div class="guest-form-card card">
+
+      <div class="card-header text-center" style="background:red;color: rgb(8, 8, 8);">
+        <h4>Register Here</h4>
+      </div>
+
+      <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <div class="form-group">
+            <label for="firstName"> First Name</label>
+            <input id="firstName" class="form-control" [(ngModel)]="customer.firstName"
+              [ngClass]="{ 'is-invalid': registerForm.get('firstName').touched && registerForm.get('firstName').invalid }"
+              formControlName="firstName" />
+            <span class="invalid-feedback">
+              <span *ngIf="registerForm.get('firstName').hasError('required')">FirstName can't be blank.</span>
+              <span *ngIf="registerForm.get('firstName').hasError('minlength')">FirstName must be minimum 2
+                characters.</span>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">LastName</label>
+            <input id="lastName" class="form-control" [(ngModel)]="customer.lastName"
+              [ngClass]="{ 'is-invalid': registerForm.get('lastName').touched && registerForm.get('lastName').invalid }"
+              formControlName="lastName" />
+            <span class="invalid-feedback">
+              <span *ngIf="registerForm.get('lastName').hasError('required')">LastName can't be blank.</span>
+              <span *ngIf="registerForm.get('lastName').hasError('minlength')">LastName must be minimum 2
+                characters.</span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" [(ngModel)]="customer.email"
+              [ngClass]="{ 'is-invalid': registerForm.get('email').touched && registerForm.get('email').invalid }"
+              formControlName="email" />
+            <span class="invalid-feedback">
+              <span *ngIf="registerForm.get('email').hasError('required')">Email can't be blank.</span>
+              <span *ngIf="registerForm.get('email').hasError('email')">Email must be valid.</span>
+            </span>
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" [(ngModel)]="customer.password"
+              [ngClass]="{ 'is-invalid': registerForm.get('password').touched && registerForm.get('password').invalid }"
+              formControlName="password" />
+            <span class="invalid-feedback">
+              <span *ngIf="registerForm.get('password').hasError('required')">Password can't be blank.</span>
+              <span *ngIf="registerForm.get('password').hasError('symbol')">Password must contain @</span>
+              <span *ngIf="registerForm.get('password').hasError('minlength')">Password must contain minimum 4
+                characters</span>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" class="form-control"
+              [ngClass]="{ 'is-invalid': registerForm.get('confirmPassword').touched && registerForm.get('confirmPassword').invalid }"
+              formControlName="confirmPassword" />
+            <span class="invalid-feedback">Passwords must match.</span>
+          </div>
+          <div class="button" style="text-align:center;">
+            <br>
+            <button class="btn btn-success" style="background-color:green">Signup</button> &nbsp;&nbsp;&nbsp;
+            <button class="btn btn-success" style="background-color:red" routerLink="/Adigas">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

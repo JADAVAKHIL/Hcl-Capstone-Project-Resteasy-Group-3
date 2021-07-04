@@ -1,0 +1,13 @@
+.img1 {
+    border-radius: 8px;
+    width: 200px;
+    height: 200px;
+  }
+  button.right {float:right};
+
+  .logo{
+    border-radius: 8px;
+    width: 100px;
+    height: 100px;
+    float: left;
+  }
